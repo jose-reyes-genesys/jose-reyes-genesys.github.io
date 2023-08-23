@@ -1,0 +1,63 @@
+const   host = 'https://api.mypurecloud.com';
+const	apiHost = 'https://analytics.demo.genesys.com';
+//const   host = 'http://127.0.0.1:12013';
+var todaysDate;
+
+function getTheDate() {
+	var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+
+	todaysDate = yyyy + '-' + mm + '-' + dd;
+	console.log(today);
+
+}
+
+function analyticsEvent(webAddress, userEmail, username, userUser, userType) {
+    return new Promise(function(fulfill, reject) {
+		var url = apiHost + '/event';
+		var urlS = webAddress.substring(28);
+		
+		var data = JSON.stringify({
+			platform: {
+				product: "Genesys Cloud",
+				product_type: "PureCloudNow"
+			},
+			user: {
+				email: userEmail,
+				type: userType,
+				user: userUser,
+				name: username
+			},
+			activity: {
+				type: "login",
+				tool: {
+					type: "GAirways"
+				},
+				web: {
+					address: webAddress,
+					page: urlS
+				}
+			}
+		});
+
+		$.ajax({
+			type: 'POST',
+			url: url,
+			headers: {
+
+			},
+			contentType: 'application/json; charset=utf-8',
+//			dataType: 'JSON',
+			data: data,
+			success: function(){
+				fulfill();
+			},
+			error: function(xhr, textStatus, errorThrown){
+//				console.log(xhr.responseText);
+				reject();
+			}
+		})
+	}
+)};

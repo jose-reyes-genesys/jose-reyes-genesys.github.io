@@ -1,0 +1,412 @@
+.wiz-background {
+    z-index: -1;
+    background-color: transparent;
+    border: 0px none transparent;
+    padding: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%!important;
+}
+
+.wiz-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.wiz-custom-page {
+    z-index: 1;
+    background-color: transparent;
+    border: 0px none transparent;
+    padding: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+[data-active] {
+    position: absolute!important;
+    background-color: transparent;
+    border: 0px none transparent;
+    border-radius:15px;
+    cursor: pointer;
+    z-index: 999999;
+    outline: none;
+}
+
+.hotspot-show {
+    border: 2px solid red;
+    background-color:rgba(255,255,0,0.25);
+}
+
+/*to have the widget on top in custom content */
+.cx-widget {
+    z-index: 1000000!important;
+}
+
+/* T H E M E S */
+
+/* RED theme */
+.cx-widget.cx-theme-red .cx-svg-icon-tone1
+{
+    fill: red;
+}
+.cx-widget.cx-theme-red .cx-btn-primary, .cx-widget.cx-theme-red .cx-btn-primary :hover, .cx-widget.cx-theme-red .cx-btn-primary :focus {
+    background-color: red!important;
+    color: white;
+}
+.cx-widget.cx-theme-red .cx-svg-icon-tone2{
+    fill: crimson;
+}
+.cx-widget.cx-theme-red,
+.cx-widget.cx-theme-red .cx-knowledge-center-wrapper {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-red .cx-knowledge-center-wrapper+.cx-button-group {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-red *, .cx-widget.cx-theme-red *:hover, .cx-widget.cx-theme-red *:focus{
+    border-color: crimson;
+/*    background-color: white;*/
+}
+.cx-webchat.cx-theme-red .cx-transcript .cx-message.cx-you .cx-bubble {
+    background-color: #cde6ef;
+}
+.cx-webchat.cx-theme-red .cx-transcript .cx-message.cx-them .cx-bubble {
+    background-color: linen;
+}
+.cx-widget.cx-theme-red .cx-callback .cx-calendar-container, .cx-widget.cx-theme-red .cx-clicktocall-close-confirm  {
+    background-color: white;
+}
+
+
+/* GREEN theme */
+.cx-widget.cx-theme-green .cx-svg-icon-tone1
+{
+    fill: green;
+}
+.cx-widget.cx-theme-green .cx-btn-primary, .cx-widget.cx-theme-green .cx-btn-primary :hover, .cx-widget.cx-theme-green .cx-btn-primary :focus {
+    background-color: green!important;
+    color: white;
+}
+.cx-widget.cx-theme-green .cx-svg-icon-tone2{
+    fill: green;
+}
+.cx-widget.cx-theme-green,
+.cx-widget.cx-theme-green .cx-knowledge-center-wrapper {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-green .cx-knowledge-center-wrapper+.cx-button-group {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-green *{
+    border-color: green;
+    background-color: white;
+}
+.cx-widget.cx-theme-green *:hover, .cx-widget.cx-theme-green *:focus{
+    border-color: green;
+/*    background-color: white;*/
+}
+.cx-webchat.cx-theme-green .cx-transcript .cx-message.cx-you .cx-bubble {
+    background-color: #cde6ef;
+}
+.cx-webchat.cx-theme-green .cx-transcript .cx-message.cx-them .cx-bubble {
+    background-color: linen;
+}
+.cx-widget.cx-theme-green .cx-callback .cx-calendar-container, .cx-widget.cx-theme-green .cx-clicktocall-close-confirm  {
+    background-color: white;
+}
+
+
+/* BLUE theme */
+.cx-widget.cx-theme-blue .cx-svg-icon-tone1
+{
+    fill: mediumblue;
+}
+.cx-widget.cx-theme-blue .cx-btn-primary, .cx-widget.cx-theme-blue .cx-btn-primary :hover, .cx-widget.cx-theme-blue .cx-btn-primary :focus {
+    background-color: mediumblue!important;
+    color: white;
+}
+.cx-widget.cx-theme-blue .cx-svg-icon-tone2{
+    fill: navy;
+}
+.cx-widget.cx-theme-blue,
+.cx-widget.cx-theme-blue .cx-knowledge-center-wrapper {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-blue .cx-knowledge-center-wrapper+.cx-button-group {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-blue *, .cx-widget.cx-theme-blue *:hover, .cx-widget.cx-theme-blue *:focus{
+    border-color: navy;
+/*    background-color: white;*/
+}
+.cx-webchat.cx-theme-blue .cx-transcript .cx-message.cx-you .cx-bubble {
+    background-color: #cde6ef;
+}
+.cx-webchat.cx-theme-blue .cx-transcript .cx-message.cx-them .cx-bubble {
+    background-color: linen;
+}
+.cx-widget.cx-theme-blue .cx-callback .cx-calendar-container, .cx-widget.cx-theme-blue .cx-clicktocall-close-confirm  {
+    background-color: white;
+}
+
+/* CYAN theme */
+.cx-widget.cx-theme-cyan .cx-svg-icon-tone1
+{
+    fill: teal;
+}
+.cx-widget.cx-theme-cyan .cx-btn-primary, .cx-widget.cx-theme-cyan .cx-btn-primary :hover, .cx-widget.cx-theme-cyan .cx-btn-primary :focus {
+    background-color: teal!important;
+    color: white;
+}
+.cx-widget.cx-theme-cyan .cx-svg-icon-tone2{
+    fill: cadetblue;
+}
+.cx-widget.cx-theme-cyan,
+.cx-widget.cx-theme-cyan .cx-knowledge-center-wrapper {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-cyan .cx-knowledge-center-wrapper+.cx-button-group {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-cyan *, .cx-widget.cx-theme-cyan *:hover, .cx-widget.cx-theme-cyan *:focus{
+    border-color: cadetblue;
+    /*background-color: white;*/
+}
+.cx-webchat.cx-theme-cyan .cx-transcript .cx-message.cx-you .cx-bubble {
+    background-color: #cde6ef;
+}
+.cx-webchat.cx-theme-cyan .cx-transcript .cx-message.cx-them .cx-bubble {
+    background-color: linen;
+}
+.cx-widget.cx-theme-cyan .cx-callback .cx-calendar-container, .cx-widget.cx-theme-cyan .cx-clicktocall-close-confirm  {
+    background-color: white;
+}
+
+/* PURPLE theme */
+.cx-widget.cx-theme-purple .cx-svg-icon-tone1
+{
+    fill: purple;
+}
+.cx-widget.cx-theme-purple .cx-btn-primary, .cx-widget.cx-theme-purple .cx-btn-primary :hover, .cx-widget.cx-theme-purple .cx-btn-primary :focus {
+    background-color: purple!important;
+    color: white;
+}
+.cx-widget.cx-theme-purple .cx-svg-icon-tone2{
+    fill: mediumpurple;
+}
+.cx-widget.cx-theme-purple,
+.cx-widget.cx-theme-purple .cx-knowledge-center-wrapper {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-purple .cx-knowledge-center-wrapper+.cx-button-group {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-purple *, .cx-widget.cx-theme-purple *:hover, .cx-widget.cx-theme-purple *:focus{
+    border-color: mediumpurple;
+/*    background-color: white;*/
+}
+.cx-webchat.cx-theme-purple .cx-transcript .cx-message.cx-you .cx-bubble {
+    background-color: #cde6ef;
+}
+.cx-webchat.cx-theme-purple .cx-transcript .cx-message.cx-them .cx-bubble {
+    background-color: linen;
+}
+.cx-widget.cx-theme-purple .cx-callback .cx-calendar-container, .cx-widget.cx-theme-purple .cx-clicktocall-close-confirm  {
+    background-color: white;
+}
+
+
+/* BLACK theme */
+.cx-widget.cx-theme-black .cx-svg-icon-tone1
+{
+    fill: #333333;
+}
+.cx-widget.cx-theme-black .cx-btn-primary, .cx-widget.cx-theme-black .cx-btn-primary :hover, .cx-widget.cx-theme-black .cx-btn-primary :focus {
+    background-color: #333333!important;
+    color: white;
+}
+.cx-widget.cx-theme-black .cx-svg-icon-tone2{
+    fill: gray;
+}
+.cx-widget.cx-theme-black,
+.cx-widget.cx-theme-black .cx-knowledge-center-wrapper {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-black .cx-knowledge-center-wrapper+.cx-button-group {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-black *, .cx-widget.cx-theme-black *:hover, .cx-widget.cx-theme-black *:focus{
+    border-color: gray;
+/*    background-color: white;*/
+}
+.cx-webchat.cx-theme-black .cx-transcript .cx-message.cx-you .cx-bubble {
+    background-color: #cde6ef;
+}
+.cx-webchat.cx-theme-black .cx-transcript .cx-message.cx-them .cx-bubble {
+    background-color: linen;
+}
+.cx-widget.cx-theme-black .cx-callback .cx-calendar-container, .cx-widget.cx-theme-black .cx-clicktocall-close-confirm  {
+    background-color: white;
+}
+
+
+/* GOLD theme */
+.cx-widget.cx-theme-gold .cx-svg-icon-tone1
+{
+    fill: orange;
+}
+.cx-widget.cx-theme-gold .cx-btn-primary, .cx-widget.cx-theme-gold .cx-btn-primary :hover, .cx-widget.cx-theme-gold .cx-btn-primary :focus {
+    background-color: orange!important;
+    color: white;
+}
+.cx-widget.cx-theme-gold .cx-svg-icon-tone2{
+    fill: gold;
+}
+.cx-widget.cx-theme-gold,
+.cx-widget.cx-theme-gold .cx-knowledge-center-wrapper {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-gold .cx-knowledge-center-wrapper+.cx-button-group {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-gold *, .cx-widget.cx-theme-gold *:hover, .cx-widget.cx-theme-gold *:focus{
+    border-color: gold;
+/*    background-color: white;*/
+}
+.cx-webchat.cx-theme-gold .cx-transcript .cx-message.cx-you .cx-bubble {
+    background-color: #cde6ef;
+}
+.cx-webchat.cx-theme-gold .cx-transcript .cx-message.cx-them .cx-bubble {
+    background-color: linen;
+}
+.cx-widget.cx-theme-gold .cx-callback .cx-calendar-container, .cx-widget.cx-theme-gold .cx-clicktocall-close-confirm  {
+    background-color: white;
+}
+
+
+/* BROWN theme */
+.cx-widget.cx-theme-brown .cx-svg-icon-tone1
+{
+    fill: saddlebrown;
+}
+.cx-widget.cx-theme-brown .cx-btn-primary, .cx-widget.cx-theme-brown .cx-btn-primary :hover, .cx-widget.cx-theme-brown .cx-btn-primary :focus {
+    background-color: saddlebrown!important;
+    color: white;
+}
+.cx-widget.cx-theme-brown .cx-svg-icon-tone2{
+    fill: chocolate;
+}
+.cx-widget.cx-theme-brown,
+.cx-widget.cx-theme-brown .cx-knowledge-center-wrapper {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-brown .cx-knowledge-center-wrapper+.cx-button-group {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-brown *, .cx-widget.cx-theme-brown *:hover, .cx-widget.cx-theme-brown *:focus{
+    border-color: saddlebrown;
+/*    background-color: white;*/
+}
+.cx-webchat.cx-theme-brown .cx-transcript .cx-message.cx-you .cx-bubble {
+    background-color: #cde6ef;
+}
+.cx-webchat.cx-theme-brown .cx-transcript .cx-message.cx-them .cx-bubble {
+    background-color: linen;
+}
+.cx-widget.cx-theme-brown .cx-callback .cx-calendar-container, .cx-widget.cx-theme-brown .cx-clicktocall-close-confirm  {
+    background-color: white;
+}
+
+/* GENESYS theme */
+.cx-widget.cx-theme-genesys .cx-svg-icon-tone1
+{
+    fill: #ff4f1f;
+}
+.cx-widget.cx-theme-genesys .cx-btn-primary, .cx-widget.cx-theme-genesys .cx-btn-primary :hover, .cx-widget.cx-theme-genesys .cx-btn-primary :focus {
+    background-color: #ff4f1f!important;
+    color: white;
+}
+.cx-widget.cx-theme-genesys .cx-svg-icon-tone2{
+    fill: #ff4f1f;  /* second color*/
+}
+.cx-widget.cx-theme-genesys,
+.cx-widget.cx-theme-genesys .cx-knowledge-center-wrapper {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-genesys .cx-knowledge-center-wrapper+.cx-button-group {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-genesys *, .cx-widget.cx-theme-genesys *:hover, .cx-widget.cx-theme-genesys *:focus{
+    border-color: #ff4f1f;
+/*    background-color: white;*/
+}
+.cx-webchat.cx-theme-genesys .cx-transcript .cx-message.cx-you .cx-bubble {
+    background-color: #cde6ef;
+}
+.cx-webchat.cx-theme-genesys .cx-transcript .cx-message.cx-them .cx-bubble {
+    background-color: linen;
+}
+.cx-widget.cx-theme-genesys .cx-callback .cx-calendar-container, .cx-widget.cx-theme-genesys .cx-clicktocall-close-confirm  {
+    background-color: white;
+}
+
+/* CUSTOM theme - define only static colors here*/
+.cx-widget.cx-theme-custom,
+.cx-widget.cx-theme-custom .cx-knowledge-center-wrapper,
+.cx-widget.cx-theme-custom .cx-knowledge-center-wrapper+.cx-button-group {
+    color: #333333; background: #fdfdfd;
+}
+.cx-widget.cx-theme-custom .cx-btn-primary {
+    color: white;
+}
+.cx-webchat.cx-theme-custom .cx-transcript .cx-message.cx-you .cx-bubble {
+    background-color: #cde6ef;
+}
+.cx-webchat.cx-theme-custom .cx-transcript .cx-message.cx-them .cx-bubble {
+    background-color: linen;
+}
+.cx-widget.cx-theme-custom .cx-callback .cx-calendar-container, .cx-widget.cx-theme-custom .cx-clicktocall-close-confirm  {
+    background-color: white;
+}
+
+/* icons corruption fix*/
+[data-icon]:before { content: none;}
+
+/* chat bubbles background fix for custom themes */
+div.cx-bubble > span.cx-name, div.cx-bubble > span.cx-time, div.cx-bubble > div {
+    background-color: transparent!important;
+}
+
+/* Live assistant hover fix (affected custom themes) */
+.cx-channel-selector .cx-channels .cx-channel:hover {
+   background-color: #eeeeee!important;
+}
+.cx-theme-dark .cx-channel-selector .cx-channels .cx-channel:hover {
+   background-color: #222529!important;
+}
+
+/* Callback calendar - custom themes fix*/
+.cx-calendar-day-wrapper, .cx-calendar-day-container, .cx-calendar-day, .cx-calendar-date,
+.cx-calendar-day-wrapper:hover, .cx-calendar-day-container:hover, .cx-calendar-day:hover, .cx-calendar-date:hover,
+.cx-calendar-day-wrapper:focus, .cx-calendar-day-container:focus, .cx-calendar-day:focus, .cx-calendar-date:focus
+ {
+    background-color: transparent!important;
+} 
+.cx-calendar-row>span:hover {
+	color: white;
+}
+
+/*****/

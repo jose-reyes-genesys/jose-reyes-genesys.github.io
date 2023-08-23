@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://gairways.demo.genesys.com/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://gairways.demo.genesys.com/images/fav.ico">
+
+    <title>GAirways - Home</title>
+
+    <script src="./GAirways - Home_files/jquery-3.4.1.min.js.download" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./GAirways - Home_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="./GAirways - Home_files/stylesheet.css" rel="stylesheet">
+
+    <!--<script defer src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>-->
+    <script src="./GAirways - Home_files/8b12951fc1.js.download" crossorigin="anonymous"></script>
+
+    <link href="./GAirways - Home_files/css" rel="stylesheet">
+    <link href="./GAirways - Home_files/css(1)" rel="stylesheet">
+
+    <script src="./GAirways - Home_files/crypto.js.download"></script>
+
+    <script type="text/javascript" src="./GAirways - Home_files/msal-browser.min.js.download"></script>
+
+    <script src="./GAirways - Home_files/methods.js.download"></script>
+    <script src="./GAirways - Home_files/webservices.js.download"></script>
+
+    <link rel="stylesheet" type="text/css" href="./GAirways - Home_files/styles.css">
+    <link href="./GAirways - Home_files/css(2)" rel="stylesheet">
+    <style>
+        /*body {
+            font-family: 'Be Vietnam';
+            font-size: 22px;
+        }*/
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        (function (g, e, n, es, ys) {
+          g['_genesysJs'] = e;
+          g[e] = g[e] || function () {
+            (g[e].q = g[e].q || []).push(arguments)
+          };
+          g[e].t = 1 * new Date();
+          g[e].c = es;
+          ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+        })(window, 'Genesys', 'https://apps.mypurecloud.com/genesys-bootstrap/genesys.min.js', {
+          environment: 'prod',
+          deploymentId: '9d076be3-b207-4133-9144-5e0cf6a10ff2'
+        });
+      </script><script async="" src="./GAirways - Home_files/genesys.min.js.download" charset="utf-8"></script>
+<style>:root {--apd_colorBarraDesplazamiento: #ff4f1f;--apd_colorBoton: #ff4f1f;--apd_colorBotonApagado: #cc0107;--apd_colorBotonEncendido: #70ad12;--apd_colorSelector: #ff4f1f;--apd_colorCabecera: #23395d;--apd_colorTextoCabecera: #ffffff}</style><script type="text/javascript" src="./GAirways - Home_files/journey.min.js.download" charset="UTF-8"></script></head>
+
+<body cz-shortcut-listen="true" style="">
+    <nav class="navbar navbar-expand-md shadow fixed-top navbar-light custom-navbar">
+        <a class="navbar-brand" href="https://gairways.demo.genesys.com/index.html">
+            <span><i class="fad fa-hat-chef"></i></span>
+            <img src="./GAirways - Home_files/g-airways-blue-logo.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" style="font-family: &#39;Be Vietnam&#39;; font-size: 22px;" href="https://gairways.demo.genesys.com/mybooking.html">My
+                        Booking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="font-family: &#39;Be Vietnam&#39;; font-size: 22px;" href="https://gairways.demo.genesys.com/flightstatus.html">Flight Status</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="font-family: &#39;Be Vietnam&#39;; font-size: 22px;" href="https://gairways.demo.genesys.com/faq.html">FAQ</a>
+                </li>
+                <!--                <li class="nav-item">
+                    <a class="nav-link" href="#">Sides & Snacks</a>
+                </li> -->
+            </ul>
+            <a class="pl-auto d-none" href="https://gairways.demo.genesys.com/checkout.html" id="indexCart" caria-expanded="false"> <i class="fa text-success fa-shopping-cart"></i></a>
+            <button class="btn btn-outline-secondary ml-4" style="font-family: &#39;Be Vietnam&#39;;" id="loginsso">LOGIN</button>
+            <div class="dropdown ml-4 d-none" id="loggedIn">
+                <!--my-auto dropdown-toggle cursor-set (Variable for dropdown toggle button)-->
+                <p class="my-auto cursor-set" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle fa-lg"></i><span id="welcomeText" style="font-family: &#39;Be Vietnam&#39;; font-size: 16px;"></span><img src="./GAirways - Home_files/gairways-favicon.png"> </p>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="loggedIn">
+                    <a id="profileMenu" class="dropdown-item cursor-set">Profile</a>
+                    <a id="logout" class="dropdown-item cursor-set">Log Out</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row align-items-center" id="banner">
+
+            <div class="col-md-12 px-0">
+                <img src="./GAirways - Home_files/travel-header.jpg" class="img-fluid">
+                <div class="carousel-caption banner-div">
+                    <p class="d-xl-block d-lg-none d-none">Book a Flight to one of over 200 Destinations!</p>
+                    <button id="" class="btn btn-primary banner-button">Location Details</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-20 mx-auto info-box shadow-lg py-3 px-5 visible-mobile">
+            <div class="row" style="text-align:center">
+                <div class="col" style="padding:2%">
+                    <div class="visible-mobile">
+                        <small>
+                            <h5>Book Now</h5>
+                        </small><br>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="visible-mobile" style="text-align:center">
+                        <h5>From</h5>
+                        <select class="box" name="fromDestinationsMobile" id="fromDestinationsMobile">
+                            <option selected="selected" value="Denver, Colorado (DEN)">Denver, Colorado (DEN)</option>
+                            <option value="London, England, UK (LHR)">London, England, UK (LHR)</option>
+                            <option value="Dallas-Fort Worth, Texas (DFW)">Dallas-Fort Worth, Texas (DFW)</option>
+                            <option value="London, England (LHR)">London, England (LHR)</option>
+                            <option value="Chicago, Illinois (ORD)">Chicago, Illinois (ORD)</option>
+                            <option value="Los Angeles, California (LAX)">Los Angeles, California (LAX)</option>
+                            <option value="Charlotte, North Carolina (CLT)">Charlotte, North Carolina (CLT)</option>
+                            <option value="Orlando, Florida (MCO)">Orlando, Florida (MCO)</option>
+                            <option value="Frankfurt, Germany (FRA)">Frankfurt, Germany (FRA)</option>
+                            <option value="Tokyo, Japan (HND)">Tokyo, Japan (HND)</option>
+                            <option value="Las Vegas, Nevada (LAS)">Las Vegas, Nevada (LAS)</option>
+                            <option value="Phoenix, Arizona (PHX)">Phoenix, Arizona (PHX)</option>
+                            <option value="Miami-Dade County, Florida (MIA)">Miami-Dade County, Florida (MIA)</option>
+                            <option value="Delhi, India (DEL)">Delhi, India (DEL)</option>
+                            <option value="Arnavutköy, Istanbul (IST)">Arnavutköy, Istanbul (IST)</option>
+                            <option value="Madrid, Spain (MAD)">Madrid, Spain (MAD)</option>
+                            <option value="SeaTac, Washington (SEA)">SeaTac, Washington (SEA)</option>
+                            <option value="Venustiano Carranza, Mexico City (MEX)">Venustiano Carranza, Mexico City
+                                (MEX)</option>
+                            <option value="Yubei, Chongqing (CKG)">Yubei, Chongqing (CKG)</option>
+                            <option value="Houston, Texas (IAH)">Houston, Texas (IAH)</option>
+                            <option value="Queens, New York, New York (JFK)">Queens, New York (JFK)</option>
+                        </select>
+                    </div><br>
+                </div>
+
+                <div class="col">
+                    <div class="visible-mobile" style="text-align:center">
+                        <h5>To</h5>
+                        <select class="box" name="fromDestinationsMobile" id="fromDestinationsMobile">
+                            <option value="London, England, UK (LHR)">London, England, UK (LHR)</option>
+                            <option value="Dallas-Fort Worth, Texas (DFW)">Dallas-Fort Worth, Texas (DFW)</option>
+                            <option value="Denver, Colorado (DEN)">Denver, Colorado (DEN)</option>
+                            <option value="Chicago, Illinois (ORD)">Chicago, Illinois (ORD)</option>
+                            <option value="Los Angeles, California (LAX)">Los Angeles, California (LAX)</option>
+                            <option value="Charlotte, North Carolina (CLT)">Charlotte, North Carolina (CLT)</option>
+                            <option value="Orlando, Florida (MCO)">Orlando, Florida (MCO)</option>
+                            <option value="Frankfurt, Germany (FRA)">Frankfurt, Germany (FRA)</option>
+                            <option value="Queens, New York (JFK)">Queens, New York (JFK)</option>
+                            <option value="Las Vegas, Nevada (LAS)">Las Vegas, Nevada (LAS)</option>
+                            <option value="Phoenix, Arizona (PHX)">Phoenix, Arizona (PHX)</option>
+                            <option value="Miami-Dade County, Florida (MIA)">Miami-Dade County, Florida (MIA)</option>
+                            <option value="Delhi, India (DEL)">Delhi, India (DEL)</option>
+                            <option value="Arnavutköy, Istanbul (IST)">Arnavutköy, Istanbul (IST)</option>
+                            <option value="Madrid, Spain (MAD)">Madrid, Spain (MAD)</option>
+                            <option value="SeaTac, Washington (SEA)">SeaTac, Washington (SEA)</option>
+                            <option value="Venustiano Carranza, Mexico City (MEX)">Venustiano Carranza, Mexico City
+                                (MEX)</option>
+                            <option value="Yubei, Chongqing (CKG)">Yubei, Chongqing (CKG)</option>
+                            <option value="Houston, Texas (IAH)">Houston, Texas (IAH)</option>
+                            <option value="Queens, New York (JFK)">Queens, New York (JFK)</option>
+                            <option selected="selected" value="Tokyo, Japan (HND)">Tokyo, Japan (HND)</option>
+                        </select>
+                    </div><br>
+                </div>
+                <div class="col">
+                    <div class="visible-mobile" style="text-align:center">
+                        <span><i class="fal fa-box-open fa-3x"></i></span>
+                        <h5 class="mt-3">Departure Date</h5>
+                        <input class="box-small" type="date" id="departureDate" name="departureDateMobile" value="2023-06-20" min="2023-06-09" max="2023-12-31">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="visible-mobile" style="text-align:center">
+                        <span><i class="fal fa-box-open fa-3x"></i></span>
+                        <h5 class="mt-3">Return Date</h5>
+                        <input class="box-small" type="date" id="returnDate" name="returnDateMobile" value="2023-06-25" min="2023-06-09" max="2023-12-31">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="visible-mobile" style="text-align:center">
+                        <h5 class="mt-3">Trip Information</h5>
+                        <select class="box-small" name="tripInformationMobile" id="tripInformationMobile">
+                            <option value="roundtrip">Round trip</option>
+                            <option value="oneway">One way</option>
+                            <option value="multicity">Multi city</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="visible-mobile" style="text-align:center">
+                        <h5 class="mt-3">Adults</h5>
+                        <select class="box-small" name="adultPassngersMobile" id="adultPassngersMobile">
+                            <option value="0passenger">0</option>
+                            <option value="1passenger">1</option>
+                            <option value="2passenger">2</option>
+                            <option value="3passenger">3</option>
+                            <option value="4passenger">4</option>
+                            <option value="5passenger">5</option>
+                            <option value="6passenger">6</option>
+                            <option value="7passenger">7</option>
+                            <option value="8passenger">8</option>
+                            <option value="9passenger">9</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="visible-mobile" style="text-align:center">
+                        <h5 class="mt-3">Children</h5>
+                        <select class="box-small" name="childrenPassengersMobile" id="childrenPassengersMobile">
+                            <option value="0passenger">0</option>
+                            <option value="1passenger">1</option>
+                            <option value="2passenger">2</option>
+                            <option value="3passenger">3</option>
+                            <option value="4passenger">4</option>
+                            <option value="5passenger">5</option>
+                            <option value="6passenger">6</option>
+                            <option value="7passenger">7</option>
+                            <option value="8passenger">8</option>
+                            <option value="9passenger">9</option>
+                        </select>
+                    </div><br><br>
+                </div>
+
+                <div class="col">
+                    <div class="visible-mobile" style="text-align:center">
+                        <a href="https://gairways.demo.genesys.com/flightOptions.html">
+                            <button id="getStartedBtm" class="btn btn-primary banner-button mt-3">Book Now</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="trip-container hidden-mobile">
+            <div class="row text my-1">
+                <div class="col">
+                    <h3 class="section-title text-center white-text mt-3">Book Now</h3>
+                </div>
+            </div>
+            <div class="row text-left how-it-works-headings mx-5 pb-5">
+                <div class="col-3">
+                    <span><i class="fal fa-ballot-check fa-3x"></i></span>
+                    <h4 class="mt-3" style="font-family: &#39;Be Vietnam&#39;; font-weight: bold; font-size: 20px;">From</h4>
+                    <div style="font-family: &#39;Be Vietnam&#39;; font-weight: bold; font-size: 20px;">
+                        <select class="box" name="fromDestinations" id="fromDestinations">
+                            <option selected="selected" value="Denver, Colorado (DEN)">Denver, Colorado (DEN)</option>
+                            <option value="Dallas-Fort Worth, Texas (DFW)">Dallas-Fort Worth, Texas (DFW)</option>
+                            <option value="London, England (LHR)">London, England (LHR)</option>
+                            <option value="Chicago, Illinois (ORD)">Chicago, Illinois (ORD)</option>
+                            <option value="Los Angeles, California (LAX)">Los Angeles, California (LAX)</option>
+                            <option value="Charlotte, North Carolina (CLT)">Charlotte, North Carolina (CLT)</option>
+                            <option value="Orlando, Florida (MCO)">Orlando, Florida (MCO)</option>
+                            <option value="Frankfurt, Germany (FRA)">Frankfurt, Germany (FRA)</option>
+                            <option value="Tokyo, Japan (HND)">Tokyo, Japan (HND)</option>
+                            <option value="Las Vegas, Nevada (LAS)">Las Vegas, Nevada (LAS)</option>
+                            <option value="Phoenix, Arizona (PHX)">Phoenix, Arizona (PHX)</option>
+                            <option value="Miami-Dade County, Florida (MIA)">Miami-Dade County, Florida (MIA)</option>
+                            <option value="Delhi, India (DEL)">Delhi, India (DEL)</option>
+                            <option value="Arnavutköy, Istanbul (IST)">Arnavutköy, Istanbul (IST)</option>
+                            <option value="Madrid, Spain (MAD)">Madrid, Spain (MAD)</option>
+                            <option value="SeaTac, Washington (SEA)">SeaTac, Washington (SEA)</option>
+                            <option value="Venustiano Carranza, Mexico City (MEX)">Venustiano Carranza, Mexico City
+                                (MEX)</option>
+                            <option value="Yubei, Chongqing (CKG)">Yubei, Chongqing (CKG)</option>
+                            <option value="Houston, Texas (IAH)">Houston, Texas (IAH)</option>
+                            <option value="Queens, New York (JFK)">Queens, New York (JFK)</option>
+                        </select>
+                    </div>
+                    <br><br>
+
+                    <h4 class="mt-3" style="font-family: &#39;Be Vietnam&#39;; font-weight: bold; font-size: 20px;">To</h4>
+                    <select class="box" name="toDestinations" id="toDestinations">
+                        <option value="London, England, UK (LHR)">London, England, UK (LHR)</option>
+                        <option value="Dallas-Fort Worth, Texas (DFW)">Dallas-Fort Worth, Texas (DFW)</option>
+                        <option value="Denver, Colorado (DEN)">Denver, Colorado (DEN)</option>
+                        <option value="Chicago, Illinois (ORD)">Chicago, Illinois (ORD)</option>
+                        <option value="Los Angeles, California (LAX)">Los Angeles, California (LAX)</option>
+                        <option value="Charlotte, North Carolina (CLT)">Charlotte, North Carolina (CLT)</option>
+                        <option value="Orlando, Florida (MCO)">Orlando, Florida (MCO)</option>
+                        <option value="Frankfurt, Germany (FRA)">Frankfurt, Germany (FRA)</option>
+                        <option value="Queens, New York (JFK)">Queens, New York (JFK)</option>
+                        <option value="Las Vegas, Nevada (LAS)">Las Vegas, Nevada (LAS)</option>
+                        <option value="Phoenix, Arizona (PHX)">Phoenix, Arizona (PHX)</option>
+                        <option value="Miami-Dade County, Florida (MIA)">Miami-Dade County, Florida (MIA)</option>
+                        <option value="Delhi, India (DEL)">Delhi, India (DEL)</option>
+                        <option value="Arnavutköy, Istanbul (IST)">Arnavutköy, Istanbul (IST)</option>
+                        <option value="Madrid, Spain (MAD)">Madrid, Spain (MAD)</option>
+                        <option value="SeaTac, Washington (SEA)">SeaTac, Washington (SEA)</option>
+                        <option value="Venustiano Carranza, Mexico City (MEX)">Venustiano Carranza, Mexico City
+                            (MEX)</option>
+                        <option value="Yubei, Chongqing (CKG)">Yubei, Chongqing (CKG)</option>
+                        <option value="Houston, Texas (IAH)">Houston, Texas (IAH)</option>
+                        <option selected="selected" value="Tokyo, Japan (HND)">Tokyo, Japan (HND)</option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <span><i class="fal fa-box-open fa-3x"></i></span>
+                    <h4 class="mt-3" style="font-family: &#39;Be Vietnam&#39;; font-weight: bold; font-size: 20px;">Departure
+                        Date</h4>
+                    <input style="font-family: &#39;Be Vietnam&#39;; font-size: 20px;" class="box-small" type="date" id="departureDate" name="departureDate" min="2023-07-20">
+                    <br><br><br>
+                    <h4 class="mt-3" style="font-family: &#39;Be Vietnam&#39;; font-weight: bold; font-size: 20px;">Return Date
+                    </h4>
+                    <input style="font-family: &#39;Be Vietnam&#39;; font-size: 20px;" class="box-small" type="date" id="returnDate" name="returnDate" min="2023-07-20">
+                </div>
+                <div class="col-2">
+                    <span><i class="fal fa-box-open fa-3x"></i></span>
+                    <h4 class="mt-3" style="font-family: &#39;Be Vietnam&#39;; font-weight: bold; font-size: 20px;">Trip
+                        Information</h4>
+                    <select class="box-small" name="tripInformation" id="tripInformation">
+                        <option value="Round trip">Round trip</option>
+                        <option value="One way">One way</option>
+                        <option value="Multi city">Multi city</option>
+                    </select>
+                    <br><br><br>
+                    <h5 class="mt-3" style="font-family: &#39;Be Vietnam&#39;; font-weight: bold; font-size: 20px;">Adults</h5>
+                    <select class="box-small" name="adultPassengers" id="adultPassengers">
+                        <option value="0">0</option>
+                        <option selected="selected" value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+
+                    <h5 class="mt-3" style="font-family: &#39;Be Vietnam&#39;; font-weight: bold; font-size: 20px;">Children
+                    </h5>
+                    <select class="box-small" name="childrenPassengers" id="childrenPassengers">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+
+                    <br><br>
+                    <a onclick="indexPageButtonFunction()">
+                        <button id="getStartedBtm" class="btn btn-primary banner-button mt-3">Book Now</button>
+                    </a>
+                </div>
+                <div class="col-5">
+                    <br><br>
+                    <img src="./GAirways - Home_files/travel-image.jpg" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid mt-5">
+        <div class="row py-4">
+            <div class="col-12 col-md">
+            </div>
+            <div class="col-4 col-md">
+                <h5>gAirways</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a href="https://gairways.demo.genesys.com/#">Locations</a></li>
+                    <li><a href="https://gairways.demo.genesys.com/#">Availability</a></li>
+                    <li><a href="https://gairways.demo.genesys.com/#">gAirways Blog</a></li>
+                    <li><a href="https://gairways.demo.genesys.com/#" data-toggle="modal" data-target="#mailingListAdd">Mailing List</a></li>
+
+                </ul>
+            </div>
+            <div class="col-4 col-md">
+                <h5>Our Company</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a href="https://gairways.demo.genesys.com/#">About</a></li>
+                    <li><a href="https://gairways.demo.genesys.com/#">Careers</a></li>
+                    <li><a href="https://gairways.demo.genesys.com/#">Annual Reports</a></li>
+                    <li><a href="https://gairways.demo.genesys.com/#" onclick="resetLocalStorage()">Reset Flight Information</a></li>
+                </ul>
+            </div>
+            <div class="col-4 col-md">
+                <h5>Contact Us</h5>
+                <ul class="list-unstyled text-small">
+                    <li id="chatWithUsContact"><a href="https://gairways.demo.genesys.com/#" onclick="return false;">Chat</a></li>
+                    <li id="callUsContact"><a href="https://gairways.demo.genesys.com/#" onclick="return false;">Phone</a></li>
+                    <li><a href="mailto:cloudtotable@pcn.demo.genesys.com" title="Email cloudtotable@pcn.demo.genesys.com" data-inin_emailtoaddress="cloudtotable@pcn.demo.genesys.com">E-mail</a></li>
+                    <li><a href="https://gairways.demo.genesys.com/#" data-toggle="modal" data-target="#whatsAppContact">WhatsApp</a></li>
+                    <li><a href="https://www.facebook.com/CloudToTable">Facebook</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            setDateBox();
+            widgetRun();
+            renewIDToken();
+        });
+        $("#loginsso").click(function () {
+            signIn();
+        });
+
+        $("#logout").click(function () {
+            signOut();
+        });
+
+        function resetLocalStorage() {
+            localStorage.removeItem("userFlightTime");
+            localStorage.removeItem("toDestination");
+            localStorage.removeItem("fromDestination");
+            localStorage.removeItem("userFlightDate");
+            localStorage.removeItem("totalPrice");
+            localStorage.removeItem("userFlightCost");
+            localStorage.removeItem("FlightBooked");
+            localStorage.removeItem("adultPassengers");
+            localStorage.removeItem("tripInfromation");
+            localStorage.removeItem("childrenPassengers");
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="./GAirways - Home_files/policies.js.download"></script>
+<script type="text/javascript" src="./GAirways - Home_files/apiConfig.js.download"></script>
+<script type="text/javascript" src="./GAirways - Home_files/authConfig.js.download"></script>
+<script type="text/javascript" src="./GAirways - Home_files/authRedirect.js.download"></script>
+<script type="text/javascript" src="./GAirways - Home_files/webmessagingauth-callback.js.download"></script>
+
+<script src="./GAirways - Home_files/esw.min.js.download"></script>
+<script src="./GAirways - Home_files/popper.min.js.download" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="./GAirways - Home_files/bootstrap.min.js.download" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+    await page.evaluate(() => {
+        var fromDestinationValue = document.getElementById("fromDestinations");
+        var toDestinationValue = document.getElementById("toDestinations");
+        localStorage.setItem("fromDestinationValue", fromDestinationValue);
+        localStorage.setItem("toDestinationValue", toDestinationValue);
+    });
+</script>
+<script>
+    n = new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    if (d > 21) {
+        m = m + 1;
+        d = d - 20;
+    }
+    //document.getElementById("depatureDate").value = '"' + y.toString() + "-" + m.toString() + "-" + d.toString() + '"';
+    //document.getElementById("returnDate").innerHTML = '"' + y + "-" + m + "-" + d + '"';
+</script>
+<style>
+    @media (max-width: 767px) {
+        .hidden-mobile {
+            display: none;
+        }
+    }
+</style>
+<style>
+    @media (min-width: 767px) {
+        .visible-mobile {
+            display: none;
+        }
+    }
+</style>
+
+
+</body></html>
