@@ -1,0 +1,538 @@
+$(function () {
+    $('input[type=radio]').change(function () {
+        localStorage.setItem('botChoice', $(this).val())
+    });
+
+    $('.plan-toggle').click(function () {
+        if (!$(this).hasClass('plan-toggle-on')) {
+            $('.plan-toggle').removeClass('plan-toggle-on');
+            $('.plan-toggle').removeClass('shadow');
+            $(this).addClass('plan-toggle-on');
+            $(this).addClass('shadow');
+        }
+        if ($(this).attr('data-type') == 'meat')
+            localStorage.protein = 'meat';
+        else
+            localStorage.protein = 'veg';
+    });
+
+    $('.spinner-arrow').click(function (e) {
+        e.preventDefault();
+
+        if ($(this).hasClass('spinner-disabled'))
+            return;
+        let max = $(this).closest('.spinner').attr('data-max');
+        let min = $(this).closest('.spinner').attr('data-min');
+        let cur = $(this).siblings('p').text();
+        let id = $(this).closest('.spinner').attr('id');
+        if ($(this).hasClass('spinner-up')) {
+            cur++;
+            $(this).siblings('.spinner-down').removeClass('spinner-disabled');
+        }
+        else {
+            cur--;
+            $(this).siblings('.spinner-up').removeClass('spinner-disabled');
+        }
+        $.event.trigger('spin-val-change', { id: id, val: cur })
+
+        $(this).siblings('p').text(cur);
+
+        if (cur == max) {
+            $(this).addClass('spinner-disabled');
+        }
+        else if (cur == min) {
+            $(this).addClass('spinner-disabled');
+        }
+    });
+
+    $(document).on('spin-val-change', function (event, data) {
+        if (data.id == 'peopleSpin') {
+            if (data.val == 2) {
+                peopleDiscount = 0;
+            }
+            else if (data.val == 3) {
+                peopleDiscount = 1;
+            }
+            else if (data.val == 4) {
+                peopleDiscount = 2;
+            }
+            localStorage.people = data.val;
+        }
+        else {
+            if (data.val == 2) {
+                dinnersDiscount = 0;
+            }
+            else if (data.val == 3) {
+                dinnersDiscount = 1;
+            }
+            else if (data.val == 4) {
+                dinnersDiscount = 1.50;
+            }
+            localStorage.dpw = data.val;
+        }
+        $('#pps').text('$' + (cost - peopleDiscount - dinnersDiscount));
+    });
+
+    $('#advanced').change(function () {
+        if (this.checked)
+            extras += 1;
+        else
+            extras -= 1;
+
+        $('#extras').text('$' + extras.toFixed(2));
+    });
+
+    $('#dessert').change(function () {
+        if (this.checked)
+            extras += 2;
+        else
+            extras -= 2;
+
+        $('#extras').text('$' + extras.toFixed(2));
+    });
+
+    $('#planContinue').click(function () {
+
+        window.location = 'passengerDetails.html';
+    });
+
+    $('#registerContinue').click(function () {
+        $('#registerContinue').addClass('spinner-border');
+        $('#registerContinue').val("");
+        deleteLead($('#email').val()).then(() => {
+            let myIdentity = {
+                givenName: $("#custFirstName").val(),
+                familyName: $("#custLastName").val(),
+                email: $("#email").val(),
+                homePhone: $("#phone").val()
+            }
+            Genesys("command", "Journey.record", {
+                eventName: "form_submitted",
+                customAttributes: myIdentity,
+                traitsMapper: [
+                    {
+                        fieldName: 'email',
+                        traitName: 'email'
+                    },
+                    {
+                        fieldName: 'givenName',
+                        traitName: 'givenName'
+                    },
+                    {
+                        fieldName: 'familyName',
+                        traitName: 'familyName'
+                    },
+                    {
+                        fieldName: 'homePhone',
+                        traitName: 'homePhone'
+                    }]
+            })
+            deleteLeadPhone($('#phone').val()).then(() => {
+                leadGen($('#email').val(), $('#custFirstName').val(), $('#custLastName').val(), $('#phone').val(), $('#address').val(), $('#city').val(), $('#state').val(), $('#zip').val()).then(() => {
+                    localStorage.shippingStreet = $('#address').val();
+                    localStorage.shippingCity = $('#city').val();
+                    localStorage.shippingState = $('#state').val();
+                    localStorage.shippingZip = $('#zip').val();
+
+                    window.location = 'checkout.html';
+                })
+
+                    .catch((err) => {
+                        //                    alert("an error has occured during registration, please notify gts@genesys.com if this issue persists");
+                        $('#registerContinue').removeClass('spinner-border');
+                        $('#registerContinue').val("Checkout");
+                        window.location = 'checkout.html';
+                    });
+            })
+                .catch((err) => {
+                    leadGen($('#email').val(), $('#custFirstName').val(), $('#custLastName').val(), $('#phone').val(), $('#address').val(), $('#city').val(), $('#state').val(), $('#zip').val()).then(() => {
+                        localStorage.shippingStreet = $('#address').val();
+                        localStorage.shippingCity = $('#city').val();
+                        localStorage.shippingState = $('#state').val();
+                        localStorage.shippingZip = $('#zip').val();
+                        gxpAc.identify({
+                            firstname: $("#custFirstName").val(),
+                            lastname: $("#custLastName").val(),
+                            phone: $("#phone").val(),
+                            email: $("#email").val()
+                        });
+                        window.location = 'checkout.html';
+                        // deleteLead is okay to fail so we duplicate the same execution code after fail and success
+                    })
+                        .catch((err) => {
+                            //                alert("an error has occured during registration, please notify gts@genesys.com if this issue persists")
+                            $('#registerContinue').removeClass('spinner-border');
+                            $('#registerContinue').val("Checkout");
+                            window.location = 'checkout.html';
+                        });
+                });
+        })
+            .catch((err) => {
+                leadGen($('#email').val(), $('#custFirstName').val(), $('#custLastName').val(), $('#phone').val(), $('#address').val(), $('#city').val(), $('#state').val(), $('#zip').val()).then(() => {
+                    localStorage.shippingStreet = $('#address').val();
+                    localStorage.shippingCity = $('#city').val();
+                    localStorage.shippingState = $('#state').val();
+                    localStorage.shippingZip = $('#zip').val();
+                    gxpAc.identify({
+                        firstname: $("#custFirstName").val(),
+                        lastname: $("#custLastName").val(),
+                        phone: $("#phone").val(),
+                        email: $("#email").val()
+                    });
+                    window.location = 'checkout.html';
+                    // deleteLead is okay to fail so we duplicate the same execution code after fail and success
+                })
+                    .catch((err) => {
+                        //            alert("an error has occured during registration, please notify gts@genesys.com if this issue persists")
+                        $('#registerContinue').removeClass('spinner-border');
+                        $('#registerContinue').val("Checkout");
+                        window.location = 'checkout.html';
+                    });
+            });
+    });
+
+    $('#checkoutAbandon').click(function () {
+        let myTermOptions = {
+            termOptions: localStorage.termOptions
+        }
+        Genesys("command", "Journey.record", {
+            eventName: "form_abandoned",
+            customAttributes: myTermOptions,
+            traitsMapper: [
+                {
+                    fieldName: 'termOptions',
+                    traitName: 'termOptions'
+                }]
+        });
+        window.location = 'index.html';
+    });
+
+    $('#registerComplete').click(function () {
+        window.location = 'index.html';
+    });
+
+    $('#getStarted').click(function () {
+        window.location = 'plans.html';
+    });
+
+    $('#getStartedBtm').click(function () {
+        window.location = 'flightOptions.html';
+    });
+
+    $('#myBookingBtn').click(function () {
+        window.location = 'plans.html';
+    });
+
+    $('#chatWithUs').click(function () {
+        gxpPlatform.openChat();
+        //customPlugin.command('WebChat.open');
+    });
+
+    $('#chatWithUsContact').click(function () {
+        gxpPlatform.openChat();
+        //customPlugin.command('WebChat.open');
+    });
+
+    $('#callUs').click(function () {
+        gxpPlatform.callNow();
+    });
+
+    $('#callUsContact').click(function () {
+        gxpPlatform.callNow();
+    });
+
+    function centerModal() {
+        $(this).css('display', 'block');
+        var $dialog = $(this).find(".modal-dialog");
+        var offset = ($(window).height() - $dialog.height()) / 2;
+        // Center modal vertically in window
+        $dialog.css("margin-top", offset);
+    }
+
+    $('#tacoClick').on('click', function () {
+        Genesys("command", "Journey.record", {
+            eventName: "ctt-clicked"
+        })
+    })
+
+    $('.modal').on('show.bs.modal', centerModal);
+    $(window).on("resize", function () {
+        $('.modal:visible').each(centerModal);
+    });
+
+    $('#profileMenu').click(function () {
+        window.location = 'profile.html'
+    });
+
+    $('#resetAlto').click(function () {
+        Genesys('command', 'Identifiers.purgeAll', {});
+        window.location = 'index.html'
+    });
+
+    $('#registerForm').on('submit', function (e) {
+        //e.preventDefault();
+        //window.location = 'checkout.html';
+    })
+
+    $('#checkoutForm').on('submit', function (e) {
+        $('#checkout').addClass('spinner-border');
+        $('#checkout').val("");
+        e.preventDefault();
+        leadGenConvert().then(() => {
+            getContact().then(() => {
+                placeSub($('#totalPrice').text()).then(() => {
+                    subConfirmation().then(() => {
+                        localStorage.indexCart = 0;
+                        window.location = "meals.html";
+                    })
+                        .catch((err) => {
+                            //                        alert("an error has occured during registration, please notify gts@genesys.com if this issue persists");
+                            $('#checkout').removeClass('spinner-border');
+                            $('#checkout').val("Checkout");
+                            localStorage.indexCart = 0;
+                            window.location = "meals.html";
+                        });
+                })
+                    .catch((err) => {
+                        alert("an error has occured during an API call, please notify gts@genesys.com if this issue persists");
+                        $('#checkout').removeClass('spinner-border');
+                        $('#checkout').val("Checkout");
+                    });
+            })
+                .catch((err) => {
+                    alert("An error has occured during registration, we were unable to find a salesforce contact associated with your email address: " + localStorage.email + ". This is required in order to complete your subscription.");
+                    $('#checkout').removeClass('spinner-border');
+                    $('#checkout').val("Checkout");
+                });
+        })
+            .catch((err) => {
+                $('#checkout').removeClass('spinner-border');
+                $('#checkout').val("Checkout");
+            });
+    });
+
+    $('input[type=radio][name=termOptions]').change(function () {
+        getCheckoutValues();
+    });
+
+    $('#profileCheck').click(function () {
+        $('#profileCheck').text("");
+        $('#profileCheck').addClass('spinner-border');
+        getCustomer(user.userName).then(() => {
+            $('#infoEmail').text("");
+            $('#infoSf').text("");
+            $('#incorrectEmailLink').addClass("d-none")
+            //        $('#profileCheckTopText').fadeOut("slow");
+            $('#profileChecking').fadeIn("slow");
+            $('#profileChecking').removeClass('d-none');
+            validateEmail(localStorage.email);
+            $('#profileCheck').removeClass('spinner-border');
+            $('#profileCheck').text("Check Again");
+            $('#incorrectSfLink').addClass("d-none")
+        });
+    });
+
+    $('#widgetToggle').change(function () {
+        //        console.log("DEBUG!")
+        if (this.checked == true) {
+            localStorage.widgetChoice = "1"
+        } else {
+            localStorage.widgetChoice = "0"
+        }
+    })
+
+    $('#emailListForm').submit(function (e) {
+        var listID = document.getElementById('emailListForm');
+        if (listID.checkValidity() === false) {
+            e.preventDefault();
+            e.stopPropagation();
+        } else {
+            e.preventDefault();
+            emailListAdd().then(() => {
+                listID.classList.add('was-validated');
+                location.reload()
+            })
+        }
+        listID.classList.add('was-validated');
+    });
+
+});
+
+function setIndexCart() {
+    if (localStorage.indexCart == 1) {
+        $('#indexCart').removeClass('d-none');
+    } else {
+        $('#indexCart').addClass('d-none');
+    }
+};
+
+function widgetRun() {
+    if (localStorage.pointsIntent == "true") {
+        Genesys("subscribe", "Conversations.ready", function () {
+            if (!localStorage.toDestination || !localStorage.fromDestination) {
+                Genesys("command", "Database.set", {
+                    messaging: {
+                        customAttributes: {
+                            email: localStorage.email,
+                            botchoice: "1",
+                            pointsIntent: localStorage.pointsIntent
+                        }
+                    }
+                });
+            }
+            else {
+                Genesys("command", "Database.set", {
+                    messaging: {
+                        customAttributes: {
+                            email: localStorage.email,
+                            todestination: localStorage.toDestination,
+                            fromdestination: localStorage.fromDestination,
+                            botchoice: "1",
+                            pointsIntent: localStorage.pointsIntent
+                        }
+                    }
+                });
+            }
+        })
+
+        Genesys("subscribe", "MessagingService.conversationDisconnected", function () {
+            console.log("Conversation Disconnect");
+            localStorage.pointsIntent = "false";
+            Genesys("command", "Database.set", {
+                messaging: {
+                    customAttributes: {
+                        email: localStorage.email,
+                        pointsIntent: localStorage.pointsIntent
+                    }
+                }
+            });
+        });
+    }
+
+    else {
+
+        Genesys("subscribe", "Conversations.ready", function () {
+            if (!localStorage.toDestination || !localStorage.fromDestination) {
+                Genesys("command", "Database.set", {
+                    messaging: {
+                        customAttributes: {
+                            email: localStorage.email,
+                            botchoice: "1",
+                            pointsIntent: "false"
+                        }
+                    }
+                });
+            }
+            else {
+
+                Genesys("subscribe", "Conversations.ready", function () {
+                    Genesys("command", "Database.set", {
+                        messaging: {
+                            customAttributes: {
+                                email: localStorage.email,
+                                todestination: localStorage.toDestination,
+                                fromdestination: localStorage.fromDestination,
+                                botchoice: "1",
+                                pointsIntent: "false"
+                            }
+                        }
+                    });
+                })
+            }
+        })
+
+
+        Genesys("subscribe", "MessagingService.conversationDisconnected", function () {
+            console.log("Conversation Disconnect");
+            localStorage.pointsIntent = "false";
+            Genesys("command", "Database.set", {
+                messaging: {
+                    customAttributes: {
+                        email: localStorage.email,
+                        pointsIntent: localStorage.pointsIntent
+                    }
+                }
+            });
+        });
+    };
+}
+
+
+function setDateBox() {
+    n = new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    if (d > 24) {
+        m = m + 1;
+        d = d - 24;
+        document.getElementById("departureDate").value = y + "-" + m + "-" + d + 1;
+        document.getElementById("returnDate").value = y + "-" + m + "-" + d + 5;
+    }
+    else {
+        //document.getElementById("departureDate").value = y + "-" + m + "-" + d + 1;
+        //document.getElementById("returnDate").value = y + "-" + m + "-" + d + 5;
+        document.getElementById("departureDate").value = d + 1 + "-" + m + "-" + y;
+        document.getElementById("returnDate").value = d + 5 + "-" + m + "-" + y;
+    }
+}
+
+var randAddress = ["2001 Junipero Serra Blvd", "7601 Interactive Way", "4444 Applewood St."];
+var randCity = ["Daly City", "Indianapolis", "Chicago"];
+var randState = ["CA", "IN", "IL"];
+var randZip = ["94014", "46278", "60007"]
+
+function customerAddress() {
+    var randNum = Math.floor(Math.random() * randAddress.length);
+    $('#address').val(randAddress[randNum]);
+    $('#city').val(randCity[randNum]);
+    $('#zip').val(randZip[randNum]);
+    $('#state').val(randState[randNum]);
+    $('#name').val(localStorage.fakeUser);
+    $('#email').val(localStorage.email);
+}
+
+function indexPageButtonFunction() {
+    var fromDestination = document.getElementById("fromDestinations").value;
+    localStorage.fromDestination = fromDestination;
+    var toDestination = document.getElementById("toDestinations").value;
+    localStorage.toDestination = toDestination;
+    var departureDate = document.getElementById("departureDate").innerHTML;
+    localStorage.departureDate = departureDate;
+    var returnDate = document.getElementById("returnDate").innerHTML;
+    localStorage.returnDate = returnDate;
+    var tripInformation = document.getElementById("tripInformation").value;
+    localStorage.tripInformation = tripInformation;
+    var adultPassengers = document.getElementById("adultPassengers").value;
+    localStorage.adultPassengers = adultPassengers;
+    var childrenPassengers = document.getElementById("childrenPassengers").value;
+    localStorage.childrenPassengers = childrenPassengers;
+    console.log(childrenPassengers)
+    console.log(adultPassengers)
+
+    if (childrenPassengers == 0 && adultPassengers == 0) {
+        alert("Number of passengers cannot be zero.")
+    }
+    else {
+        window.location.href = "flightOptions.html";
+    }
+}
+
+function flightOptionsButtonFunction() {
+    localStorage.removeItem("userFlightDate");
+    localStorage.removeItem("userFlightTime");
+    localStorage.removeItem("userFlightCost");
+
+    var fromDateTime = document.getElementById("fromDateTime").innerHTML;
+    var toDateTime = document.getElementById("toDateTime").innerHTML;
+    var flightDate = fromDateTime + " - " + toDateTime;
+    localStorage.userFlightDate = flightDate;
+
+    var flightTime = document.getElementById("timeLabel").innerHTML;
+    localStorage.userFlightTime = flightTime;
+
+    var flightCost = document.getElementById("flightCost").innerHTML;
+    localStorage.userFlightCost = flightCost;
+
+    window.location.href = 'passengerDetails.html';
+}
